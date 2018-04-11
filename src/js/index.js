@@ -11,7 +11,7 @@ const reducer = function(state, action){
   return state;
 
 }
-
+//hellooo ;););)
 // initial state = 0
 const store = createStore(reducer, {
   user: {
