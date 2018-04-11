@@ -1,5 +1,7 @@
 import {createStore } from "redux";
 
+
+
 const reducer = function(state, action){
 
   if(action.type === "INC")
@@ -11,7 +13,15 @@ const reducer = function(state, action){
 }
 
 // initial state = 0
-const store = createStore(reducer, 0);
+const store = createStore(reducer, {
+  user: {
+    name: "Lovisa",
+    age: 25,
+
+  },
+  tweets: []
+
+});
 
 //subscribe to console.log
 store.subscribe(() => {
