@@ -30,6 +30,8 @@ $ npm add css-loader style-loader --only=dev
 
 $ npm add react react-dom
 
+$ npm i -S redux
+
 /*****************
 ** RUN WITH NPM **
 *****************/
