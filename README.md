@@ -36,9 +36,24 @@ $ npm i -S redux
 ** RUN WITH NPM **
 *****************/
 
-$ npm start
+$ npm start 
+or
+$ npm run dev
 
 Open localhost:8080 in webbrowser
+
+/*****************
+** PROBLEM FIX **
+*****************/
+
+if you get errror; "Invalid configuration object. Webpack 
+has been initialised using a configuration object that does not match the API schema..."
+ 
+Do the following:
+
+$npm uninstall webpack --save-dev
+$npm install webpack@2.1.0-beta.22 --save-dev
+
 
 
 
