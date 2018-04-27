@@ -19,14 +19,14 @@ export function fetchTweets() {
       })
   }
 }
-
-export function addTweet(id, text){
+//works with rest
+export function addTweet(text){
   fetch('http://rest.learncode.academy/api/lovisa/tweets', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({id: id, tweet: [text]}),
+      body: JSON.stringify({text:text}),
     })
     .then(response => response.json()) // response.json() returns a promise
     .then((response) => {
@@ -34,21 +34,7 @@ export function addTweet(id, text){
     })
 }
 
-/*
-export function addTweet(text) {
-  return function(dispatch) {
-    dispatch({type: "ADD_TWEET"});
-    
-    axios.post("http://rest.learncode.academy/api/lovisa/tweets")
-      .then((response) => {
-        dispatch({type: "ADD_TWEET_FULFILLED", payload: response.data})
-      })
-      .catch((err) => {
-        dispatch({type: "ADD_TWEET_REJECTED", payload: err})
-      })
-  }
-}
-*/
+
 /*
 export function addTweet(id, text) {
   return {

@@ -19,20 +19,20 @@ export default class Layout extends React.Component{
 
     this.props.dispatch(fetchUser())
     //this.props.dispatch(addTweet(""))
-    addTweet(1, "hello World")
-    addTweet(123, "mememe")
-    addTweet(1, "Sunny day indeed")
+    addTweet("hello World")
+    addTweet("mememe")
+    addTweet("Sunny day indeed")
 
   }
-
-  addTweet(id, text){
+/*
+  addTweet(text){
       console.log("addTweet");
       const { user, tweets} = this.props;
 
 
       this.props.dispatch(addTweet(text))
   }
-
+*/
   fetchTweets() {
         console.log("fetch tweets");
 
@@ -50,10 +50,10 @@ export default class Layout extends React.Component{
     console.log("renderPass");
 
 
-    return <h1>{user.name}</h1>;
+    //return <h1>{user.name}</h1>;
 
-    const mappedTweets = tweets.map(tweet => <li>{tweet.text}</li>)
-
+    //const mappedTweets = tweets.map(tweet => <li>{tweet.text}</li>)
+        const mappedTweets = tweets.map(tweet => <li key={tweet.id}>{tweet.text}</li>)
     return <div>
       <h1>{user.name}</h1>
       <ul>{mappedTweets}</ul>
