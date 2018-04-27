@@ -10,7 +10,7 @@ export function fetchTweets() {
       - change "reacttest" below to any other username
       - post some tweets to http://rest.learncode.academy/api/yourusername/tweets
     */
-    axios.get("http://rest.learncode.academy/api/reacttest/tweets")
+    axios.get("http://rest.learncode.academy/api/lovisa/tweets")
       .then((response) => {
         dispatch({type: "FETCH_TWEETS_FULFILLED", payload: response.data})
       })
@@ -20,6 +20,36 @@ export function fetchTweets() {
   }
 }
 
+export function addTweet(id, text){
+  fetch('http://rest.learncode.academy/api/lovisa/tweets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({id: id, tweet: [text]}),
+    })
+    .then(response => response.json()) // response.json() returns a promise
+    .then((response) => {
+      console.log("You saved this item", response); //returns the new item along with its ID
+    })
+}
+
+/*
+export function addTweet(text) {
+  return function(dispatch) {
+    dispatch({type: "ADD_TWEET"});
+    
+    axios.post("http://rest.learncode.academy/api/lovisa/tweets")
+      .then((response) => {
+        dispatch({type: "ADD_TWEET_FULFILLED", payload: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: "ADD_TWEET_REJECTED", payload: err})
+      })
+  }
+}
+*/
+/*
 export function addTweet(id, text) {
   return {
     type: 'ADD_TWEET',
@@ -29,6 +59,7 @@ export function addTweet(id, text) {
     },
   }
 }
+*/
 
 export function updateTweet(id, text) {
   return {

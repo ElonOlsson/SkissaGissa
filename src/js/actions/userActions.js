@@ -4,6 +4,7 @@ export function fetchUser() {
     payload: {
       name: "Will",
       age: 35,
+      id: 1
     }
   }
 }
