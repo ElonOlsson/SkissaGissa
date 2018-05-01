@@ -1,6 +1,10 @@
 import React from "react";
 
-//import Title from "./Header/Title";
+
+
+import Title from "./Header/Title";
+import Timer from "./Header/Timer";
+
 
 export default class Header extends React.Component {
   handleChange(e) {
@@ -9,9 +13,13 @@ export default class Header extends React.Component {
   }
 
   render() {
+
     return ( 
-      <div>
-        <h1> Hello</h1>
+      <div class="row">
+
+        <Title/>
+        <Timer/>
+
       </div>
       ) ;
    /* return (
