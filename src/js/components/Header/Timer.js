@@ -20,7 +20,7 @@ export default class Title extends React.Component {
 
   render() {
     return (
-    	<div id= "timer" class="column">
+    	<div id= "timer" class="column right">
         <p> This is the timer value: </p> {this.state.timestamp}  
    		</div>
     );

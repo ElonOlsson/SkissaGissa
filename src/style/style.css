@@ -11,7 +11,7 @@ h1{
 
 .column {
     float: left;
-    width: 30%;
+    width: 50%;
 }
 
 /* Clear floats after the columns */
@@ -23,6 +23,7 @@ h1{
 }
 
 /* HEADER */
+
 #title {
 	text-align: center;
 	font-size: 50px;
@@ -40,17 +41,28 @@ h1{
 
 }
 
+.left {
+    width: 75%;
+}
+
+.right {
+    width: 25%;
+}
+
 /* BODY */
 
 #canvas {
    display: block;
    background-color:white;
-   width: 50%;
+   width: 90%;
    height:30%;
-   	border-radius: 5px;
+   border-radius: 5px;
 
+   padding-left: 0;
+   padding-right: 0;
+   margin-left: auto;
+   margin-right: auto;
 }
-
 
 /* FOOTER */
 
