@@ -5,6 +5,8 @@ import React from "react";
 import Title from "./Header/Title";
 import Timer from "./Header/Timer";
 
+//import store from "./../store";
+
 
 export default class Header extends React.Component {
   handleChange(e) {
@@ -18,8 +20,6 @@ export default class Header extends React.Component {
       <div class="row">
 
         <Title/>
-        <Timer/>
-
       </div>
       ) ;
    /* return (
