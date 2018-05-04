@@ -32,6 +32,9 @@ $ npm add react react-dom
 
 $ npm i -S redux
 
+$ npm install react-canvas-draw --save
+
+
 /*****************
 ** RUN WITH NPM **
 *****************/
