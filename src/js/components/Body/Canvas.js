@@ -2,6 +2,7 @@ import React from "react";
 
 //import CanvasDraw from "react-canvas-draw";
 //https://www.npmjs.com/package/react-canvas-draw
+import { subscribeToTimer } from '../../subscribe';
 
 /*
 export default class Canvas extends React.Component {
