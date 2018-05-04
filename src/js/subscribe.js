@@ -1,8 +1,11 @@
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000'); //why does it not connect to 8000 but 3000 instead?
+const socket = openSocket('http://localhost:8020'); //why does it not connect to 8020 but 3000 instead?
 
-function subscribeToDrawing(cb) {	// caller passes in a time intercal and cb, a callback function
-  socket.on('timer', timestamp => cb(null, timestamp));
-  socket.emit('subscribeToTimer', 1000);
+
+function subscribeToTimer(cb) { // caller passes in a time intercal and cb, a callback function
+
+	socket.on('timer', timestamp => cb(null, timestamp));
+  socket.emit('subscribeToTimer', 1000); //1000 = interval
 } 
-export { subscribeToDrawing}
+export { subscribeToTimer }
+

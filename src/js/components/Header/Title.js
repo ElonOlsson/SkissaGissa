@@ -1,10 +1,14 @@
 import React from "react";
+//import Timer from "./Header/Timer";
 
 
 export default class Title extends React.Component {
   render() {
     return (
-      <h1>{this.props.title}</h1>
+    	<div id="title" class="column left">
+         Guess and Draw 
+
+        </div>
     );
   }
 }

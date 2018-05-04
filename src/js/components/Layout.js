@@ -8,9 +8,11 @@ import Body from "./Body"
 
 @connect((store) => {
   return {
+/*   //store object
     user: store.user.user,
     userFetched: store.user.fetched,
     tweets: store.tweets.tweets,
+    */
   };
 })
 export default class Layout extends React.Component{

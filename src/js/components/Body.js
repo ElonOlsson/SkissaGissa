@@ -6,8 +6,7 @@ export default class Body extends React.Component {
 
   render() {
     return ( 
-      <div>
-        <h1> I am a body</h1>
+      <div class="row">
         <Canvas/>
       </div>
       ) ;
