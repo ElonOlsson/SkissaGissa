@@ -1,21 +1,28 @@
-export function startTimer() {
+export function startTimer(baseTime = 0) {
   return {
-    type: 'START_TIMER',
-    payload: 'Started timer'
-
-  }
+    type: "START_TIMER",
+    baseTime: baseTime,
+    now: new Date().getTime()
+  };
 }
 
 export function stopTimer() {
   return {
-    type: 'STOP_TIMER',
-    payload: 'Stopped timer'
-  }
+    type: "STOP_TIMER",
+    now: new Date().getTime()
+  };
 }
 
 export function resetTimer() {
   return {
-    type: 'TIMER_RESETTED',
-    payload: time
+    type: "RESET_TIMER",
+    now: new Date().getTime()
+  }
+}
+
+export function endTimer() {
+  return {
+    type: "END_TIMER",
+    now: new Date().getTime()
   }
 }

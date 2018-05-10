@@ -1,34 +1,33 @@
 
-// Initial state for reducer
 const initialState = {
-  isOn: false,
-  time: 0,
+  startedAt: undefined,
+  stoppedAt: undefined,
+  baseTime: undefined
 };
 
-export default function timerReducer(state=initialState, action){
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'START_TIMER':
-      return {
-        ...initialState,
-        isOn: true,
-        offset: action.offset,
-      };
-    
-    case 'STOP_TIMER':
+    case "RESET_TIMER":
       return {
         ...state,
-        isOn: false,
-        time: state.time,
+        baseTime: 0,
+        startedAt: state.startedAt ? action.now : undefined,
+        stoppedAt: state.stoppedAt ? action.now : undefined
       };
-      
-    case 'TICK':
+    case "START_TIMER":
       return {
         ...state,
-        time: state.time + (action.time - state.offset),
-        offset: action.time
+        baseTime: action.baseTime,
+        startedAt: action.now,
+        stoppedAt: undefined
       };
-
-    default: 
+    case "STOP_TIMER":
+      return {
+        ...state,
+        stoppedAt: action.now
+      }
+    default:
       return state;
   }
 }
+
