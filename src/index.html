@@ -11,6 +11,36 @@
 
   <body>
     <div id="app"></div>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+
+    <!-- Add additional services you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD2jrFFyokPF4e9yhWjGzc4QlfiRncDvx0",
+        authDomain: "guessanddraw-c88d6.firebaseapp.com",
+        databaseURL: "https://guessanddraw-c88d6.firebaseio.com",
+        projectId: "guessanddraw-c88d6",
+        storageBucket: "guessanddraw-c88d6.appspot.com",
+        messagingSenderId: "23645828879"
+      };
+      firebase.initializeApp(config);
+
+    
+    </script>
+
+
+    
+    
     <script src="guessAndDraw.min.js"></script>
   </body>
+
+ 
+
 </html>

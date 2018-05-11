@@ -8,6 +8,7 @@ import { IndexRoute, hashHistory } from "react-router";
 import Root from './components/Root'
 
 import store from "./store"
+//import Timer from "./components/Header/Timer";
 
 import Layout from "./components/Layout"
 import Header from "./components/Header"
