@@ -1,8 +1,10 @@
+var gameTime = 1000 * 60 * 2; //in ms
+
 
 const initialState = {
   startedAt: undefined,
   stoppedAt: undefined,
-  baseTime: undefined
+  baseTime: gameTime
 };
 
 export default function reducer(state = initialState, action) {
@@ -10,7 +12,7 @@ export default function reducer(state = initialState, action) {
     case "RESET_TIMER":
       return {
         ...state,
-        baseTime: 0,
+        baseTime: gameTime,
         startedAt: state.startedAt ? action.now : undefined,
         stoppedAt: state.stoppedAt ? action.now : undefined
       };
@@ -22,10 +24,11 @@ export default function reducer(state = initialState, action) {
         stoppedAt: undefined
       };
     case "STOP_TIMER":
-      return {
-        ...state,
-        stoppedAt: action.now
-      }
+      if(state.stoppedAt === undefined)
+        return {
+          ...state,
+          stoppedAt: action.now
+        }
     default:
       return state;
   }

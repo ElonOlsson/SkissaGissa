@@ -7,11 +7,10 @@ import {startTimer} from "../../actions/timerActions"
 import {stopTimer} from "../../actions/timerActions"
 import {resetTimer} from "../../actions/timerActions"
 
-var gameTime = 1000 * 60 * 2; //in ms
 
 function getElapsedTime(baseTime, startedAt, stoppedAt = new Date().getTime()) {
   if (!startedAt) {
-    return gameTime;
+    return baseTime;
   } else {
     return baseTime - (stoppedAt - startedAt);
   }
