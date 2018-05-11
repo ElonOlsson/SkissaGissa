@@ -9,7 +9,7 @@ export const toolsMap = {
   [TOOL_ELLIPSE]: Ellipse
 };
 
-export default class SketchPad extends Component {
+export default class SketchPad extends React.Component {
 
   tool = null;
   interval = null;
@@ -113,7 +113,7 @@ export default class SketchPad extends Component {
   render() {
     const {width, height, canvasClassName} = this.props;
     return (
-      <canvas
+      <canvas id = "canvas"
         ref={(canvas) => { this.canvasRef = canvas; }}
         className={canvasClassName}
         onMouseDown={this.onMouseDown}
