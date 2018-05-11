@@ -4,11 +4,13 @@ import { Provider } from "react-redux"
 
 import Layout from "./components/Layout"
 import store from "./store"
-//import Timer from "./components/Header/Timer";
+//import SketchExample from './SketchExample.jsx';
 
 const app = document.getElementById('app')
 
 
-ReactDOM.render(<Provider store={store}>
+ReactDOM.render(
+	<Provider store={store}>
 	    <Layout/>
-</Provider>, app);
+	</Provider>, app
+);

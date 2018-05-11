@@ -1,26 +1,10 @@
 import React from "react";
-
-//import CanvasDraw from "react-canvas-draw";
-//https://www.npmjs.com/package/react-canvas-draw
 import { subscribeToTimer } from '../../subscribe';
 
-/*
-export default class Canvas extends React.Component {
+//https://www.npmjs.com/package/react-canvas-draw
+//https://github.com/mBeierl/react-canvas-draw/tree/master/demo/src
 
-drawline(){
 
-}
-
-  render() {
-
-    return (
-    	<div>
-    		<canvas id="canvas"></canvas>
-    	</div>   
-    );
-  }
-}
-*/
 export default class Canvas extends React.Component {
   static defaultProps = {
     loadTimeOffset: 5,

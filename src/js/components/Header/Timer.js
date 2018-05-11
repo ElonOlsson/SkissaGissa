@@ -47,9 +47,7 @@ export default class Timer extends React.Component {
 	  	const { baseTime, startedAt, stoppedAt } = this.props;
 	    const elapsed = getElapsedTime(baseTime, startedAt, stoppedAt);
 
-
-
-	      return (
+	    return (
 	      <div>
 	        <div>Time: {this.format(elapsed)}</div>
 	        <div>
