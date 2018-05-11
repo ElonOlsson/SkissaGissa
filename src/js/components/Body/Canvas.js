@@ -1,5 +1,5 @@
 import React from "react";
-import { subscribeToTimer } from '../../subscribe';
+
 
 //https://www.npmjs.com/package/react-canvas-draw
 //https://github.com/mBeierl/react-canvas-draw/tree/master/demo/src

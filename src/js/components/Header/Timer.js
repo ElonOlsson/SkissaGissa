@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux"
-import { subscribeToTimer } from '../../subscribe';
 import store from '../../store';
 
 import {startTimer} from "../../actions/timerActions"
