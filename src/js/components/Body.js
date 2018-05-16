@@ -11,7 +11,6 @@ export default class Body extends React.Component {
     return ( 
       <div class="row">
         <SketchExample/>
-        <Canvas/>
         <GetDbWordArea/>
       </div>
       ) ;
