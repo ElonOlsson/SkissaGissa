@@ -29,9 +29,7 @@ ReactDOM.render(
       
       </Switch>
     </Router>
-  </Provider>   
-
-,app);
+  </Provider>,app);
 
 /*
 ReactDOM.render(
