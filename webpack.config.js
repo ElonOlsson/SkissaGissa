@@ -23,6 +23,9 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "guessAndDraw.min.js"
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),

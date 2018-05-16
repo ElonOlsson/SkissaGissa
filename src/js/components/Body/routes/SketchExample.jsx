@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SketchPad, TOOL_PENCIL, TOOL_LINE, TOOL_RECTANGLE, TOOL_ELLIPSE } from '../../../tools';
+import { SketchPad, TOOL_PENCIL, TOOL_LINE, TOOL_RECTANGLE, TOOL_ELLIPSE } from '../../../../tools';
 import IO from 'socket.io-client'
 
 const wsClient = IO(`ws://127.0.0.1:12346`);

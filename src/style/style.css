@@ -64,9 +64,22 @@ h1{
 }
 .canvas{
      background-color:white;
+}
+
+.homeButton{
+
+  width: 100px;
+  height: 50px;
+  margin: 10px;
 
 }
 
+#btnSketch{
+
+}
+#btnGuess{
+
+}
 
 /* FOOTER */
 

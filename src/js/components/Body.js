@@ -1,17 +1,26 @@
 import React from "react";
 
-import Canvas from "./Body/Canvas";
-import SketchExample from './Body/SketchExample.jsx';
+//import SketchExample from './Body/routes/SketchExample.jsx';
 import GetDbWordArea from "./Body/GetDbWordArea";
+import Routes from "./Body/routes/Root" 
 
 
 export default class Body extends React.Component {
-
+/*
   render() {
     return ( 
       <div class="row">
         <SketchExample/>
         <GetDbWordArea/>
+      </div>
+      ) ;
+  }
+  */
+
+  render() {
+    return ( 
+      <div class="row">
+	        <Routes/>
       </div>
       ) ;
   }
