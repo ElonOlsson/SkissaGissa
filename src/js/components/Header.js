@@ -14,6 +14,7 @@ export default class Header extends React.Component {
 
         <Title/>
         <Timer updateInterval = {33}/>
+        
 
       </div>
     );

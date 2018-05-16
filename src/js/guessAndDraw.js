@@ -1,16 +1,43 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import { IndexRoute, hashHistory } from "react-router";
 
-import Layout from "./components/Layout"
+
+import Root from './components/Root'
+
 import store from "./store"
 //import SketchExample from './SketchExample.jsx';
 
-const app = document.getElementById('app')
+import Layout from "./components/Layout"
+import Header from "./components/Header"
+import Body from "./components/Body"
+import Footer from "./components/Footer"
 
 
+const app = document.getElementById('app');
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router>
+      <Switch>
+      <Route path="/" component={Layout}></Route>
+      <IndexRoute  component={Header}> </IndexRoute>
+      <Route path="body" component={Body}></Route>
+      <Route path="footer" component={Footer}></Route>
+      
+      </Switch>
+    </Router>
+  </Provider>   
+
+,app);
+
+/*
 ReactDOM.render(
 	<Provider store={store}>
 	    <Layout/>
 	</Provider>, app
 );
+
+*/
