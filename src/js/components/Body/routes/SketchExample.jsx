@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { SketchPad, TOOL_PENCIL, TOOL_LINE, TOOL_RECTANGLE, TOOL_ELLIPSE } from '../../../../tools';
 import IO from 'socket.io-client'
+import GetDbWordArea from './../GetDbWordArea'
+
 
 const wsClient = IO(`ws://127.0.0.1:12346`);
 
@@ -29,6 +31,7 @@ export default class SketchExample extends Component
     const { tool, size, color, fill, fillColor, items } = this.state;
     return (
       <div>
+        <GetDbWordArea/>
         <div style={{float:'left', marginRight:20}}>
           <SketchPad
             width={500}
