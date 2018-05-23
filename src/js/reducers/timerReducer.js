@@ -2,8 +2,8 @@ var gameTime = 1000 * 60 * 2; //in ms
 
 
 const initialState = {
-  startedAt: undefined,
-  stoppedAt: undefined,
+  startedAt: 0,
+  stoppedAt: 0,
   baseTime: gameTime
 };
 

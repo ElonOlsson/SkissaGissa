@@ -1,11 +1,9 @@
 import React from "react";
 import { connect } from "react-redux"
-import { subscribeToTimer } from '../../subscribe';
-import store from '../../store';
 
-import {startTimer} from "../../actions/timerActions"
-import {stopTimer} from "../../actions/timerActions"
-import {resetTimer} from "../../actions/timerActions"
+import {startTimer,stopTimer,resetTimer} from "../../actions/timerActions"
+
+
 
 
 function getElapsedTime(baseTime, startedAt, stoppedAt = new Date().getTime()) {
@@ -15,6 +13,14 @@ function getElapsedTime(baseTime, startedAt, stoppedAt = new Date().getTime()) {
     return baseTime - (stoppedAt - startedAt);
   }
 }
+
+@connect((store) => {
+  return{
+    baseTime: store.timer.baseTime,
+    startedAt: store.timer.startedAt,
+    stoppedAt: store.timer.stoppedAt
+  };
+})
 
 export default class Timer extends React.Component {
 
@@ -47,9 +53,7 @@ export default class Timer extends React.Component {
 	  	const { baseTime, startedAt, stoppedAt } = this.props;
 	    const elapsed = getElapsedTime(baseTime, startedAt, stoppedAt);
 
-
-
-	      return (
+	    return (
 	      <div>
 	        <div>Time: {this.format(elapsed)}</div>
 	        <div>

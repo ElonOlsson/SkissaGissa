@@ -1,16 +1,8 @@
-const io = require('socket.io')();
+const io = require('socket.io')().attach(12346);
 
-
-io.on('connection', (client) => {
-  // here you can start emitting events to the client 
-    client.on('subscribeToTimer', (interval) => {
-    console.log('client is subscribing to timer with interval ', interval);
-    setInterval(() => {
-      client.emit('timer', new Date());
-    }, interval);
-  });
+io.on('connection', (socket) => {
+    socket.on('addItem', (data) => {
+        console.log(data);
+        socket.broadcast.emit('addItem', data);
+    });
 });
-
-const port = 8020;
-io.listen(port);
-console.log('listening on port ', port);
