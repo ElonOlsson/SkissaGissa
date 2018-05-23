@@ -19,7 +19,7 @@ function getElapsedTime(baseTime, startedAt, stoppedAt = new Date().getTime()) {
 export default class Timer extends React.Component {
 
   componentDidMount() {
-    this.interval = setInterval(this.forceUpdate.bind(this), this.props.updateInterval || 33);
+    this.interval = setInterval(this.forceUpdate.bind(this), this.props.updateInterval || 33);    // 33ms is default
   }
 
   componentWillUnmount() {

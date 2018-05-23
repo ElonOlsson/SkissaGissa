@@ -8,24 +8,35 @@ export default class GetDbWordArea extends React.Component {
   }  
   
   getWordFoo(){    
-      var theGottenWord = document.getElementById("drawMeWord");
-      const nrOfWords = 26;
-      const randomIndex = Math.floor(Math.random() * nrOfWords);
+    var keys = new Array();    
+    var theButton = document.getElementById("drawMeWord");
+    const nrOfWords = 26;
+    const randomIndex = Math.floor(Math.random() * nrOfWords);
 
-      var dbRef = firebase.database().ref().child("Words");
-      dbRef.limitToFirst(randomIndex).once('value').then(snapshot =>
-      {
-        var word = snapshot.val();
-
-        theGottenWord.innerText.innerText = word;
+    //var axios = require('axios');
+    var dbRef = firebase.database().ref().child("Words");
+    dbRef.once('value', function(snap){
+      console.log("vafan är snap?: " + snap.val()); //{Angry, Fireworks, ...}
+      console.log("vafan är snap type?: " + typeof snap.val()); //object
+      snap.forEach(function(item){
+        console.log(item.val() + " " + typeof item.val());
+        keys.push(item.val());
       });
+    });
+    console.log("NUMMER 1");
+    console.log("längden på keys: " + keys.length);
+    theButton.innerText = keys[randomIndex];
 
-//      dbRef.on("value", snap => theGottenWord.innerText = snap.val());   
+    //dbRef.on("value", snap => theButton.innerText = snap.val());   
+    
   };
+
+
   render() {
       return ( 
       <div>
           <button id="drawMeWord" onClick={this.getWordFoo}>Tryck då</button>
+          
       </div>
       );
   }
