@@ -30,6 +30,7 @@ export default class SketchPad extends React.Component {
     onDebouncedItemChange: PropTypes.func, // function(idStroke, points:Point[]) { ... }
     onCompleteItem: PropTypes.func, // function(stroke:Stroke) { ... }
     debounceTime: PropTypes.number,
+    drawable: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -38,10 +39,11 @@ export default class SketchPad extends React.Component {
     color: '#000',
     size: 5,
     fillColor: '',
-    canvasClassName: 'canvas',
     debounceTime: 1000,
     animate: true,
+    canvasClassName: 'canvas',
     tool: TOOL_PENCIL,
+    drawable: true,
     toolsMap
   };
 
@@ -111,18 +113,32 @@ export default class SketchPad extends React.Component {
   }
 
   render() {
-    const {width, height, canvasClassName} = this.props;
-    return (
-      <canvas id = "canvas"
-        ref={(canvas) => { this.canvasRef = canvas; }}
-        className={canvasClassName}
-        onMouseDown={this.onMouseDown}
-        onMouseMove={this.onMouseMove}
-        onMouseOut={this.onMouseUp}
-        onMouseUp={this.onMouseUp}
-        width={width}
-        height={height}
-      />
-    )
+    const {width, height, canvasClassName, drawable} = this.props;
+
+    if(drawable){
+          return (
+            <canvas id = "canvas"
+              ref={(canvas) => { this.canvasRef = canvas; }}
+              className={canvasClassName}
+              onMouseDown={this.onMouseDown}
+              onMouseMove={this.onMouseMove}
+              onMouseOut={this.onMouseUp}
+              onMouseUp={this.onMouseUp}
+              width={width}
+              height={height}
+            />
+          )
+
+    }else{
+          return (
+            <canvas id = "canvas"
+              ref={(canvas) => { this.canvasRef = canvas; }}
+              className={canvasClassName}
+              width={width}
+              height={height}
+            />
+          )            
+    }
+
   }
 }
