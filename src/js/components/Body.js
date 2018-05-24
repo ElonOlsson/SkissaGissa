@@ -1,7 +1,7 @@
 import React from "react";
 
 //import SketchExample from './Body/routes/SketchExample.jsx';
-import GetDbWordArea from "./Body/GetDbWordArea";
+import GetDbWordArea from "./Body/routes/GetDbWordArea";
 import Routes from "./Body/routes/Root" 
 
 

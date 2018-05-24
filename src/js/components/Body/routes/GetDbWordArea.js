@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux"
 
+import {generateWord} from "./../../../actions/generateWordActions"
 
 export default class GetDbWordArea extends React.Component {
   constructor(props){
@@ -31,11 +33,16 @@ export default class GetDbWordArea extends React.Component {
     
   };
 
+  @connect((store) => {
+    return{
+      word: store.generateWord.word
+    };
+  })
 
   render() {
       return ( 
       <div>
-          <button id="drawMeWord" onClick={this.getWordFoo}>Tryck då</button>
+          <button id="drawMeWord" onClick={this.getWordFoo}>Slumpa ett ord</button>
           
       </div>
       );
