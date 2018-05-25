@@ -13,11 +13,18 @@ export default class GetDbWordArea extends React.Component {
     return{
       word: store.word.word
     };
-  })          
+  }) 
+
+  getWord(){
+
+  }         
   render() {
-      return ( 
-      <div>
-          <button id="drawMeWord" onClick={() => this.props.fetchWord()}>Slumpa ett ord</button>
+    const{word} = this.props.word;
+
+    return ( 
+      <div class="row">
+          <button class="column left" id="btnGetWord" onClick={() => this.props.fetchWord()}>Slumpa ett ord</button>
+          <div id="wordTextField" class="column right">{ word }</div>
       </div>
       );
   }
