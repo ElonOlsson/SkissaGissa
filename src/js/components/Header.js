@@ -7,6 +7,7 @@ import store from "./../store";
 
 export default class Header extends React.Component {
 
+
   render() {
 
     return ( 

@@ -9,12 +9,10 @@ export function fetchWord(){
     var theGeneratedWord;
     dbRef.once('value')
     .then(function(snap){
-      console.log("#1: vad är snap på randomIndex?: " + snap.child(randomIndex).val()); //{Angry, Fireworks, ...} exp: Baby
       theGeneratedWord = snap.child(randomIndex).val();
     })
     .then(function(){
       dispatch({type: "FETCH_WORD_FULFILLED", word: theGeneratedWord});
-      console.log("#2: det slumpade ordet : " + theGeneratedWord);
     });
 
 // We wanted to make a error handler, but cant really check if anything is wrong.

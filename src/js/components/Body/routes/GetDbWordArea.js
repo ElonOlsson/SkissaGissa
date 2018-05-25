@@ -1,30 +1,44 @@
 import React from "react";
 import { connect } from "react-redux"
 
+import IO from 'socket.io-client'
 import {fetchWord} from "./../../../actions/generateWordActions"
+
+
+const wsClient = IO(`ws://127.0.0.1:12346`);
 
 export default class GetDbWordArea extends React.Component {
 //  constructor(props){
 //    super(props);
 //    this.getWordFoo = this.getWordFoo.bind(this);
-//  }  
+//  } 
 
   @connect((store) => {
     return{
       word: store.word.word
     };
+
   }) 
 
-  getWord(){
 
-  }         
+  getAndSendWord(){
+    const word = this.props.word;
+
+    this.props.fetchWord();
+    console.log("SOCKETEMIT THIS: ", word)
+
+  }
+
+
+        
   render() {
     const{word} = this.props.word;
 
     return ( 
       <div class="row">
-          <button class="column left" id="btnGetWord" onClick={() => this.props.fetchWord()}>Slumpa ett ord</button>
+          <button class="column left" id="btnGetWord" onClick={() => this.getAndSendWord()}>Slumpa ett ord</button>
           <div id="wordTextField" class="column right">{ word }</div>
+          <button class="column left" id="btnGetWord" onClick={() => wsClient.emit('addItem', word)}>Send word</button>
       </div>
       );
   }

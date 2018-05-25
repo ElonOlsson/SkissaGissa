@@ -25,7 +25,7 @@ export default class SketchExample extends Component
   }
 
   componentDidMount() {
-    wsClient.on('addItem', item => this.setState({items: this.state.items.concat([item])}));
+    //wsClient.on('addItem', item => this.setState({items: this.state.items.concat([item])}));
   }
 
   render() {
