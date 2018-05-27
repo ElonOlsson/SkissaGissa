@@ -15,8 +15,9 @@ export default class SketchExample extends Component
     this.state = {
       items: [],
       drawable: false,
-      sketchWord: "katt",
-      guessWord: ""
+      sketchWord: "",
+      guessWord: "",
+      time: ""
     }
 
 }
@@ -25,6 +26,8 @@ export default class SketchExample extends Component
   componentDidMount() {
    	wsClient.on('addItem', item => this.setState({items: this.state.items.concat([item])}));
     wsClient.on('sendWord', item => this.setState({sketchWord: item}));
+    wsClient.on('sendTime', item => this.setState({time: item}));
+
   }
 
 
@@ -47,13 +50,15 @@ export default class SketchExample extends Component
   }
 
   render() {
-    const { items, drawable, sketchWord, guessWord } = this.state;
+    const { items, drawable, sketchWord, guessWord, time } = this.state;
     return (
       <div>
 	        Guess Word:
 			<input id = "guessWordField" class="btn" type="text" name="guessWord" onChange={(e) => this.guessWord(e.target.value)} />
   			<button class = "btn" onClick={() => this.compareWord()}> Submit </button>
 			<div class = "right" id="wordTextField" >{ sketchWord }</div>
+
+			Time: {time}
         <div style={{float:'left', marginRight:20}}>
 	        <SketchPad 
 	           width={500}

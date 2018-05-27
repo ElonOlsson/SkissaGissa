@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux"
 
 import IO from 'socket.io-client'
-import {fetchWord} from "./../../../actions/generateWordActions"
+import {fetchWord} from "./../../../../actions/generateWordActions"
 
 
 const wsClient = IO(`ws://127.0.0.1:12346`);

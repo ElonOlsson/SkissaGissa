@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux"
 
-import {startTimer,stopTimer,resetTimer} from "../../actions/timerActions"
+import {startTimer,stopTimer,resetTimer} from "../../../../actions/timerActions"
+import IO from 'socket.io-client'
 
 
-
+const wsClient = IO(`ws://127.0.0.1:12346`);
 
 function getElapsedTime(baseTime, startedAt, stoppedAt = new Date().getTime()) {
   if (!startedAt) {
@@ -18,7 +19,7 @@ function getElapsedTime(baseTime, startedAt, stoppedAt = new Date().getTime()) {
   return{
     baseTime: store.timer.baseTime,
     startedAt: store.timer.startedAt,
-    stoppedAt: store.timer.stoppedAt
+    stoppedAt: store.timer.stoppedAt,
   };
 })
 
@@ -26,6 +27,7 @@ export default class Timer extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(this.forceUpdate.bind(this), this.props.updateInterval || 33);    // 33ms is default
+
   }
 
   componentWillUnmount() {
@@ -52,7 +54,7 @@ export default class Timer extends React.Component {
 
 	  	const { baseTime, startedAt, stoppedAt } = this.props;
 	    const elapsed = getElapsedTime(baseTime, startedAt, stoppedAt);
-
+      wsClient.emit('sendWord', this.format(elapsed))
 	    return (
 	      <div>
 	        <div>Time: {this.format(elapsed)}</div>
