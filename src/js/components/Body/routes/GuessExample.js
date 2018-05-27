@@ -16,15 +16,15 @@ export default class SketchExample extends Component
       items: [],
       drawable: false,
       sketchWord: "katt",
-      guessWord: "hej"
+      guessWord: ""
     }
 
 }
   
 
   componentDidMount() {
-   // wsClient.on('addItem', item => this.setState({items: this.state.items.concat([item])}));
-    wsClient.on('addItem', item => this.setState({sketchWord: item}));
+   	wsClient.on('addItem', item => this.setState({items: this.state.items.concat([item])}));
+    wsClient.on('sendWord', item => this.setState({sketchWord: item}));
   }
 
 
@@ -39,9 +39,11 @@ export default class SketchExample extends Component
   	return this.state.sketchWord;
   }
 
-  compareWord(myWord){
-  	console.log(myWord === "elon");
-  	console.log(this.state.sketchWord)
+  compareWord(){
+
+  	const { sketchWord, guessWord } = this.state;
+  	console.log(sketchWord === guessWord);
+
   }
 
   render() {
@@ -50,7 +52,7 @@ export default class SketchExample extends Component
       <div>
 	        Guess Word:
 			<input id = "guessWordField" class="btn" type="text" name="guessWord" onChange={(e) => this.guessWord(e.target.value)} />
-  			<button class = "btn" onClick={() => this.compareWord(guessWord)}> Submit </button>
+  			<button class = "btn" onClick={() => this.compareWord()}> Submit </button>
 			<div class = "right" id="wordTextField" >{ sketchWord }</div>
         <div style={{float:'left', marginRight:20}}>
 	        <SketchPad 

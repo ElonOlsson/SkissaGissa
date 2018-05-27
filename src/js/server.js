@@ -7,3 +7,11 @@ io.on('connection', (socket) => {
     });
     
 });
+
+io.on('connection', (socket) => {
+    socket.on('sendWord', (data) => {
+        console.log(data);
+        socket.broadcast.emit('sendWord', data);
+    });
+    
+});
