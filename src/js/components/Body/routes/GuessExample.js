@@ -58,7 +58,7 @@ export default class SketchExample extends Component
   			<button class = "btn" onClick={() => this.compareWord()}> Submit </button>
 			<div class = "right" id="wordTextField" >{ sketchWord }</div>
 
-			Time: {time}
+			<div class= "row left">Time: {time}</div>
         <div style={{float:'left', marginRight:20}}>
 	        <SketchPad 
 	           width={500}
