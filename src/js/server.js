@@ -5,4 +5,23 @@ io.on('connection', (socket) => {
         console.log(data);
         socket.broadcast.emit('addItem', data);
     });
+    
 });
+
+io.on('connection', (socket) => {
+    socket.on('sendWord', (data) => {
+        console.log(data);
+        socket.broadcast.emit('sendWord', data);
+    });
+    
+});
+
+io.on('connection', (socket) => {
+    socket.on('sendTime', (data) => {
+        console.log(data);
+        socket.broadcast.emit('sendTime', data);
+    });
+    
+});
+
+//WHAT DOES io.on DO? NECESSARY? 

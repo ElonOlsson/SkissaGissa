@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { SketchPad, TOOL_PENCIL, TOOL_LINE, TOOL_RECTANGLE, TOOL_ELLIPSE } from '../../../../tools';
 import IO from 'socket.io-client'
-import GetDbWordArea from './GetDbWordArea'
-import { connect } from "react-redux"
+import store from "./../../../store";
+import Timer from "./SketchExample/Timer";
+import GetDbWordArea from './SketchExample/GetDbWordArea'
+//import timerActions from 
 
 const wsClient = IO(`ws://127.0.0.1:12346`);
 
@@ -23,15 +25,13 @@ export default class SketchExample extends Component
     }
   }
 
-  componentDidMount() {
-    wsClient.on('addItem', item => this.setState({items: this.state.items.concat([item])}));
-  }
-
   render() {
     const { tool, size, color, fill, fillColor, items } = this.state;
     return (
       <div>
         <GetDbWordArea/>
+        <Timer updateInterval = {33}/>
+
         <div style={{float:'left', marginRight:20}}>
           <SketchPad
             width={500}

@@ -1,6 +1,6 @@
 
 const initialState = {
-  word: "",
+  word: "NONE",
   fetching: false,
   fetched: false,
   error: null
