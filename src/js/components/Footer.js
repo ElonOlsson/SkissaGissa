@@ -1,26 +1,9 @@
 import React from "react";
-import FilterLink from "./Containers/FilterLink";
 //import { VisibilityFilters } from "../actions";
-
-
-/*
-  Show: {' '}
-    <FilterLink filter ={}>
-      All
-    </FilterLink>
-    {", "}
-    <FilterLink filter ={}>
-      Active
-    </FilterLink>
-    {", "}
-    <FilterLink filter ={}>
-      Completed
-    </FilterLink>
-*/
 
 const Footer = () =>(
   <p>
-    footer
+    Created by Lovisa Hassler and Elon Olsson. 2018
   </p>
 
 )
