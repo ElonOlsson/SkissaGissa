@@ -54,7 +54,7 @@ export default class Timer extends React.Component {
 
 	  	const { baseTime, startedAt, stoppedAt } = this.props;
 	    const elapsed = getElapsedTime(baseTime, startedAt, stoppedAt);
-     wsClient.emit('sendTime', this.format(elapsed))
+      wsClient.emit('sendTime', this.format(elapsed))
 	    return (
 	      <div>
 	        <div>Time: {this.format(elapsed)}</div>
