@@ -1,3 +1,9 @@
+/*************************************************
+This tool was provided by Michal Svrček on Github
+Link: https://github.com/svrcekmichal/react-sketchpad
+
+Some configurations have been made to suit this project
+**************************************************/
 import React, {Component, PropTypes} from 'react';
 import { findDOMNode } from 'react-dom'
 import { Pencil, TOOL_PENCIL, Line, TOOL_LINE, Ellipse, TOOL_ELLIPSE, Rectangle, TOOL_RECTANGLE } from './tools'
@@ -117,7 +123,7 @@ export default class SketchPad extends React.Component {
 
     if(drawable){
           return (
-            <canvas id = "canvas"
+            <canvas 
               ref={(canvas) => { this.canvasRef = canvas; }}
               className={canvasClassName}
               onMouseDown={this.onMouseDown}
@@ -131,7 +137,7 @@ export default class SketchPad extends React.Component {
 
     }else{
           return (
-            <canvas id = "canvas"
+            <canvas 
               ref={(canvas) => { this.canvasRef = canvas; }}
               className={canvasClassName}
               width={width}

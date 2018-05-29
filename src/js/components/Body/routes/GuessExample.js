@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 import { SketchPad } from '../../../../tools';
 import IO from 'socket.io-client'
 
+//const wsClient = IO(`ws://127.0.0.1:12346`);
 const wsClient = IO(`ws://127.0.0.1:12346`);
+  const WIDTH = window.innerWidth/3;
+  const HEIGHT = window.innerHeight/2;
+/*
+window.onresize = function(event) {
+   WIDTH = window.innerWidth/3;
+   HEIGHT = window.innerHeight/2;
 
+};
+*/
 export default class SketchExample extends Component
 {
   socket = null;
@@ -15,9 +24,11 @@ export default class SketchExample extends Component
     this.state = {
       items: [],
       drawable: false,
-      sketchWord: "",
+      sketchWord: "Not Received Yet",
       guessWord: "",
-      time: ""
+      time: "",
+      guessMsg: "Make a guess above...",
+      points: 0
     }
 
 }
@@ -45,28 +56,41 @@ export default class SketchExample extends Component
   compareWord(){
 
   	const { sketchWord, guessWord } = this.state;
+      
+    if(sketchWord === guessWord){
+      this.setState({guessMsg: "Correct Guess! Next Word "})
+    }else{
+      this.setState({guessMsg: "Wrong Guess! Try again... "})
+    }
+    //lastGuess = bool(sketchWord === guessWord);
   	console.log(sketchWord === guessWord);
 
   }
 
   render() {
-    const { items, drawable, sketchWord, guessWord, time } = this.state;
+    const { items, drawable, sketchWord, guessWord, time, guessMsg } = this.state;
     return (
       <div>
-	        Guess Word:
-			<input id = "guessWordField" class="btn" type="text" name="guessWord" onChange={(e) => this.guessWord(e.target.value)} />
-  			<button class = "btn" onClick={() => this.compareWord()}> Submit </button>
-			<div class = "right" id="wordTextField" >{ sketchWord }</div>
+        <div class="column left">
+                  <div class="left">Guess Word:</div>
+			    <input id = "guessWordField" class=" textField" type="text" name="guessWord"  onChange={(e) => this.guessWord(e.target.value)} />
+          <button id="btnSubmit" class = "btn" onClick={() => this.compareWord()}> Submit </button>
+    		 <div class = " textField" id="guessMsgField" >
+            { guessMsg }
+          </div>
 
-			<div class= "row left">Time: {time}</div>
-        <div style={{float:'left', marginRight:20}}>
-	        <SketchPad 
-	           width={500}
-	           height={500}
-	           items={items}
-	           drawable={drawable}
-	        />
-	    </div>    
+    			<div>
+            Time: {time}
+          </div>
+        </div>
+        <div class="column " id="canvasGuess">
+    	       <SketchPad 
+    	         width={400}
+    	         height={400}
+    	         items={items}
+    	         drawable={drawable}
+    	       />
+        </div>
       </div>
     );
   }

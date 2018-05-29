@@ -1,6 +1,6 @@
 
 const initialState = {
-  word: "NONE",
+  word: "Currently no word fetched...",
   fetching: false,
   fetched: false,
   error: null

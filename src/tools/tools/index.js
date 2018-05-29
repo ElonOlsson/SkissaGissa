@@ -1,3 +1,8 @@
+/*************************************************
+This tool was provided by Michal Svrček on Github
+Link: https://github.com/svrcekmichal/react-sketchpad
+**************************************************/
+
 export {
   default as Pencil,
   TOOL_PENCIL

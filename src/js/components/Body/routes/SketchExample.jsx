@@ -29,34 +29,18 @@ export default class SketchExample extends Component
     const { tool, size, color, fill, fillColor, items } = this.state;
     return (
       <div>
-        <GetDbWordArea/>
-        <Timer updateInterval = {33}/>
-
-        <div style={{float:'left', marginRight:20}}>
-          <SketchPad
-            width={500}
-            height={500}
-            animate={true}
-            size={size}
-            color={color}
-            fillColor={fill ? fillColor : ''}
-            items={items}
-            tool={tool}
-            onCompleteItem={(i) => wsClient.emit('addItem', i)}
-          />
-        </div>
-        <div style={{float:'left'}}>
-          <div className="tools" style={{marginBottom:20}}>
-            <button
-              style={tool == TOOL_PENCIL ? {fontWeight:'bold'} : undefined}
-              className={tool == TOOL_PENCIL  ? 'item-active' : 'item'}
-              onClick={() => this.setState({tool:TOOL_PENCIL})}
-            >Pencil</button>
+        <div class="column">
+          <div className="tools" class="btnGroup">
             <button
               style={tool == TOOL_LINE ? {fontWeight:'bold'} : undefined}
               className={tool == TOOL_LINE  ? 'item-active' : 'item'}
               onClick={() => this.setState({tool:TOOL_LINE})}
             >Line</button>
+            <button
+              style={tool == TOOL_PENCIL ? {fontWeight:'bold'} : undefined}
+              className={tool == TOOL_PENCIL  ? 'item-active' : 'item'}
+              onClick={() => this.setState({tool:TOOL_PENCIL})}
+            >Pencil</button>
             <button
               style={tool == TOOL_ELLIPSE ? {fontWeight:'bold'} : undefined}
               className={tool == TOOL_ELLIPSE  ? 'item-active' : 'item'}
@@ -68,25 +52,44 @@ export default class SketchExample extends Component
               onClick={() => this.setState({tool:TOOL_RECTANGLE})}
             >Rectangle</button>
           </div>
-          <div className="options" style={{marginBottom:20}}>
+          <div className="options">
             <label htmlFor="">size: </label>
             <input min="1" max="20" type="range" value={size} onChange={(e) => this.setState({size: parseInt(e.target.value)})} />
           </div>
-          <div className="options" style={{marginBottom:20}}>
+          <div className="options">
             <label htmlFor="">color: </label>
             <input type="color" value={color} onChange={(e) => this.setState({color: e.target.value})} />
           </div>
           {(this.state.tool == TOOL_ELLIPSE || this.state.tool == TOOL_RECTANGLE) ?
             <div>
               <label htmlFor="">fill in:</label>
-              <input type="checkbox" value={fill} style={{margin:'0 8'}}
-                     onChange={(e) => this.setState({fill: e.target.checked})} />
+              <input type="checkbox" value={fill} onChange={(e) => this.setState({fill: e.target.checked})} />
               {fill ? <span>
                   <label htmlFor="">with color:</label>
                   <input type="color" value={fillColor} onChange={(e) => this.setState({fillColor: e.target.value})} />
                 </span> : ''}
             </div> : ''}
+
+          <div class="toBottom"> 
+            <GetDbWordArea/>
+            <Timer updateInterval = {33}/>
+          </div>
         </div>
+
+        <div class="column">
+          <SketchPad
+             id="canvasSketch"
+             width={400}
+             height={400}
+             animate={false}
+             size={size}
+             color={color}
+             fillColor={fill ? fillColor : ''}
+             items={items}
+             tool={tool}
+             onCompleteItem={(i) => wsClient.emit('addItem', i)}
+           />
+         </div>
       </div>
     );
   }
