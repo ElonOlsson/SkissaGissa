@@ -15,12 +15,12 @@ export function fetchWord(){
       dispatch({type: "FETCH_WORD_FULFILLED", word: theGeneratedWord});
     });
 
-// We wanted to make a error handler, but cant really check if anything is wrong.
-//    .catch(function(err){
-//      dispatch({type: "FETCH_WORD_REJECTED", payload: err});
-//      console.log("HEJ DET BLEV FETT FEL");
-//      
-//    });
+                // We wanted to make a error handler, but cant really check if anything is wrong.
+                //    .catch(function(err){
+                //      dispatch({type: "FETCH_WORD_REJECTED", payload: err});
+                //      console.log("HEJ DET BLEV FETT FEL");
+                //      
+                //    });
 
   } 
 }

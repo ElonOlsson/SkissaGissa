@@ -21,9 +21,9 @@ export function resetTimer() {
 }
 
 //HERE WE SHOULD IMPLEMENT SOME COOL STUFF FOR WHEN THE GAME ENDS
-export function endTimer() {
-  return {
-    type: "END_TIMER",
-    now: new Date().getTime()
-  }
-}
+//export function endTimer() {
+//  return {
+//    type: "END_TIMER",
+//    now: new Date().getTime()
+//  }
+//}

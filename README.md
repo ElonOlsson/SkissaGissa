@@ -1,3 +1,5 @@
+See our screen cast at: https://youtu.be/xNPIxjgHdXo 
+
 * Frameworks:
 
  - React
@@ -21,16 +23,22 @@ Install the dependencies listed in package.json
 /*****************
 ** RUN WITH NPM **
 *****************/
-
 $ npm run dev
+(from the same directory as the readme- file is placed)
 
 Open localhost:8080 in webbrowser
+
+/************************
+** RUN SOCKET SERVER   ** 
+*************************/
+$ node src/js/server
+(from the same directory as the readme- file is placed)
 
 /*****************
 ** PROBLEM FIX **
 *****************/
 
-if you get errror; "Invalid configuration object. Webpack 
+if you get error; "Invalid configuration object. Webpack 
 has been initialised using a configuration object that does not match the API schema..."
  
 Do the following:
