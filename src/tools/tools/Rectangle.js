@@ -1,3 +1,7 @@
+/*************************************************
+This tool was provided by Michal Svrček on Github
+Link: https://github.com/svrcekmichal/react-sketchpad
+**************************************************/
 import { v4 } from 'uuid';
 
 export const TOOL_RECTANGLE = 'rectangle';

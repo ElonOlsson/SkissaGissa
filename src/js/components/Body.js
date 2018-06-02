@@ -5,9 +5,10 @@ import Routes from "./Body/routes/Root"
 export default class Body extends React.Component {
 
 
+
   render() {
     return ( 
-      <div class="row">
+      <div class="bodyMain">
 	        <Routes/>
       </div>
       ) ;

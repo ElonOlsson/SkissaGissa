@@ -2,10 +2,11 @@ import React from "react";
 //import { VisibilityFilters } from "../actions";
 
 const Footer = () =>(
-  <p>
-    Created by Lovisa Hassler and Elon Olsson. 2018
-  </p>
-
+	<div class="footer">
+	  <p>
+	    Created by Lovisa Hassler and Elon Olsson. 2018
+	  </p>	
+	</div>  
 )
 
 export default Footer;
