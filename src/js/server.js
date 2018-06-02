@@ -23,5 +23,3 @@ io.on('connection', (socket) => {
     });
     
 });
-
-//WHAT DOES io.on DO? NECESSARY? 
